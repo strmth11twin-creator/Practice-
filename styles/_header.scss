@@ -1,0 +1,126 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders' as p;
+@use 'sass:color';
+
+.header {
+    width: 100%;
+    height: 52px;
+    background-color:v.$blue__color;
+
+
+    border: {
+        bottom: {
+            width: 1px;
+            color: v.$white__color;
+            style: solid;
+        }
+
+    }
+
+    .navigation {
+        height: 50px;
+        @include m.d-flex(start, center);
+
+        &__title {
+            height: 100%;
+            width: 255px;
+            @include m.d-flex(center, center);
+
+            border: {
+                right: {
+                    width: 1px;
+                    color: v.$white__color;
+                    style: solid;
+                }
+            }
+
+            &-link {
+                font-size: 25px;
+                font-weight: 500;
+                color: v.$white__color;
+
+                span {
+                    font-weight: 700;
+                }
+
+                @extend %hover-black;
+            }
+        }
+
+        &__links {
+
+            flex-grow: 1;
+
+            .list {
+                @include m.d-flex(start, center, nowrap, row, min(80px, 4vw), 0);
+                padding: 0 0 0 min(80px, 4vw);
+
+                &__item {
+                    &-link {
+                        color: v.$white__color;
+                        font-size: 22px;
+                        font-weight: 400;
+                        @extend %hover-black;
+                    }
+                }
+            }
+
+            @media(max-width:p.$media_lg) {
+                .list {
+                    @include m.d-flex (center,
+                        center,
+                        nowrap,
+                        row,
+                        min(80px, 4vw),
+                        0) ;
+                        padding: 0 0 0 0;
+                }
+
+            }
+
+        }
+
+        .covid {
+            height: 100%;
+            @include m.d-flex(center, center);
+            padding: 0 30px;
+
+            border: {
+                left: {
+                    width: 1px;
+                    style: solid;
+                    color: v.$white__color;
+                }
+
+                right: {
+                    width: 1px;
+                    style: solid;
+                    color: v.$white__color;
+                }
+            }
+
+            &__link {
+                font-size: 16px;
+                font-weight: 700;
+                color: v.$white__color;
+
+                @extend %hover-black;
+            }
+        }
+
+        .globe {
+            width: 90px;
+            @include m.d-flex(center, center);
+
+            &__link {
+                &-icon {
+                    width: 27px;
+                    height: 29px;
+                    @extend %hover-black-icon;
+                }
+            }
+        }
+
+    }
+}
