@@ -1,0 +1,24 @@
+{
+  "name": "maket-3lvl",
+  "version": "1.0.0",
+  "description": "learning git and SCSS",
+  "homepage": "https://github.com/strmth11twin-creator/Practice-#readme",
+  "bugs": {
+    "url": "https://github.com/strmth11twin-creator/Practice-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strmth11twin-creator/Practice-.git"
+  },
+  "license": "ISC",
+  "author": "Emmanuil",
+  "type": "commonjs",
+  "source": "index.html",
+  "scripts": {
+    "sass:watch": "sass --style=expanded --watch styles:dist"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.3",
+    "sass": "^1.97.1"
+  }
+}
