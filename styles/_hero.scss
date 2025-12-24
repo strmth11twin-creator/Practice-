@@ -1,0 +1,206 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders' as p;
+@use 'sass:color';
+
+.hero {
+    position: relative;
+    max-width: 1260px;
+    height: 830px;
+    margin: 0 auto;
+    padding: 140px 0 0 0;
+    background: url(/assets/Images/f62ba577818ca3548e6a3d3671041f9a301e680d.png) center/contain no-repeat;
+
+    &__content {
+        position: relative;
+        width: 900px;
+        margin: 0 auto;
+
+        .hero__content-title {
+            @include m.font(110px, 700, v.$black__color);
+            line-height: 1;
+        }
+
+        .hero__action-button {
+            width: 380px;
+            height: 80px;
+            background-color: v.$black__color;
+
+            border-radius: 45px;
+            border: none;
+            cursor: pointer;
+            @include m.font(28px, 500, v.$white__color);
+            @include m.position(absolute, 1, -1, bottom, right, 15px, 0);
+
+            &:hover {
+                background-color: color.adjust(v.$black__color, $alpha: -0.35);
+
+                opacity: 0.7;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid v.$white__color;
+            }
+        }
+
+        @media(max-width:p.$media_lg) {
+            width: 100%;
+            max-width: 700px;
+            height: 500px;
+
+            .hero__content-title {
+                @include m.font(100px, 700, v.$black__color)
+            }
+
+            .hero__action-button {
+                @include m.position(absolute, 1, -1, bottom, left, 0, 15px);
+            }
+        }
+
+        @media (max-width:p.$media_md) {
+            max-width: 560px;
+            height: 400px;
+
+            .hero__content-title {
+                @include m.font(75px, 700, v.$black__color)
+            }
+
+            .hero__action-button {
+               
+                @include m.font(18px, 400, v.$white__color)
+            }
+
+
+        }
+
+        @media (max-width:p.$media_sm) {
+            max-width: 350px;
+            height: 280px;
+        
+            .hero__content-title {
+                @include m.font(45px, 500, v.$black__color)
+            }
+        
+            .hero__action-button {
+                width: 260px;
+                height: 60px;
+                @include m.font(18px, 400, v.$white__color)
+            }}
+    }
+
+    &__notify {
+        position: relative;
+        margin: 170px auto 0;
+        width: 680px;
+        height: 60px;
+        background-color: color.adjust(v.$white__color, $alpha: -0.85);
+        border-radius: 20px;
+        @include m.d-flex(end, center, nowrap, row, 10px);
+
+
+        &-img {
+            width: 126px;
+            height: 198px;
+            @include m.position(absolute, 1, -1, top, left, -75px, -30px);
+        }
+
+        &-text {
+            @include m.font(14px, 400, v.$black__color);
+            @include m.d-flex(center, center, nowrap);
+            width: 450px;
+            height: 100%;
+            border-right: 1px solid v.$white__color;
+            line-height: 1;
+        }
+
+        &-button {
+            width: 115px;
+
+            @include m.font(25px, 400, v.$black__color);
+            background: none;
+            border: none;
+            @extend %hover-light;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid v.$white__color;
+                border-radius: 5px;
+            }
+        }
+
+        @media (max-width:p.$media_md) {
+            width: 100%;
+            max-width: 450px;
+            height: fit-content;
+            @include m.d-flex(start, center, nowrap, column, 0, 0);
+            margin: 140px auto 0;
+
+
+            &-text {
+                padding: 15px 10px 15px 90px;
+                width: 100%;
+                border-right: none;
+                line-height: 1.4;
+                border-bottom: 1px solid v.$white__color;
+                @include m.font(12px, 400, v.$black__color);
+            }
+
+            &-button {
+                @include m.font(30px, 400,
+                    v.$black__color );
+                padding: 15px 0;
+            }
+        }
+                @media (max-width:p.$media_sm) {
+                    &-text {
+                        padding: 10px 10px 10px 100px;
+                            width: 100%;
+                            border-right: none;
+                            line-height: 1.4;
+                            border-bottom: 1px solid v.$white__color;
+                            @include m.font(11px, 400, v.$black__color);
+                    }
+                    &-img {
+                        @include m.position(absolute, 1, -1, top, left, -45px, -15px);
+                    }
+                }
+    }
+
+    &__scroll {
+        @include m.position(absolute, 1, -1, bottom, left, 200px, 10px);
+
+        &-text {
+            position: relative;
+            @include m.font(16px, 500, v.$white__color);
+            writing-mode: vertical-rl;
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                height: 1px;
+                @include m.position(absolute, 1, -1, top, left, 100px, 8px);
+                display: block;
+                background-color: v.$white__color;
+                width: 1px;
+                height: 75px;
+
+            }
+        }
+
+        @media (max-width:p.$media_lg) {
+            @include m.position(absolute, 1, -1, bottom, left, 130px, 0)
+        }
+    }
+
+    @media (max-width:p.$media_md) {
+        padding: 110px 15px 0;
+        background: url(/assets/Images/f62ba577818ca3548e6a3d3671041f9a301e680d.png) 0 25%/contain no-repeat;
+    }
+}
