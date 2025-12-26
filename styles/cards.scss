@@ -44,16 +44,74 @@
             color: v.$white__color;
         }
     }
+
     @media (max-width:p.$media_min) {
-    
+
         // .info-card__title {
         //         @include m.font(16px, 400, v.$black__color)
         //     }
-        
+
         //     .info-card__text {
         //         text-align: center;
         //         @include m.font(13px, 300, v.$black__color)
         //     }
     }
 
+}
+
+.img-card {
+    width: 325px;
+    height: 295px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #FFFFFF1A;
+    @include m.d-flex(space-between, center, nowrap, column, 0, 0);
+    overflow: hidden;
+
+    &__title {
+        @include m.d-flex(center, center, nowrap, column, 0, 0);
+        @include m.font(23px, 400, v.$white__color);
+        flex-shrink:0;
+        flex-grow: 1;
+    }
+
+    &__picture {
+        width: 100%;
+        height: 220px;
+    }
+
+    &__button {
+        @include m.position (absolute, 1, -1, bottom, left, -20px, -30px);
+        width: 120px;
+        height: 90px;
+        border-radius: 20px;
+        border: none;
+        background-color: v.$white__color;
+        rotate: 7deg;
+        transition: rotate .2s;
+
+        &-icon {
+            width: 36px;
+            height: 23px;
+            fill: v.$black__color;
+            rotate: -7deg;
+            translate: 12px, -3px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            rotate: 7deg;
+            scale: 1.3;
+
+            .img-card__button-icon {
+                rotate: -7deg;
+                translate: 17px -8px;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 8px 20px 12px rgba(0,0,0,.15), inset 0 -5px 70px 25px rgba(0,0,0,.2) ;
+    }
 }
