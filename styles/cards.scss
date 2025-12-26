@@ -64,14 +64,14 @@
     height: 295px;
     position: relative;
     border-radius: 10px;
-    background-color: #FFFFFF1A;
+    background-color: #6d3085;
     @include m.d-flex(space-between, center, nowrap, column, 0, 0);
     overflow: hidden;
 
     &__title {
         @include m.d-flex(center, center, nowrap, column, 0, 0);
         @include m.font(23px, 400, v.$white__color);
-        flex-shrink:0;
+        flex-shrink: 0;
         flex-grow: 1;
     }
 
@@ -112,6 +112,43 @@
 
     &:hover {
         cursor: pointer;
-        box-shadow: 0 8px 20px 12px rgba(0,0,0,.15), inset 0 -5px 70px 25px rgba(0,0,0,.2) ;
+        box-shadow: 0 8px 20px 12px rgba(0, 0, 0, .15), inset 0 -5px 70px 25px rgba(0, 0, 0, .2);
     }
+}
+
+.wave-card {
+    position: relative;
+    width: 500px;
+    height: 275px;
+    background: url('/assets/Rectangle.svg') center/cover no-repeat;
+    @include m.d-flex(start, start, nowrap, column, 0, 35px);
+
+    &__avatar {
+        border-radius: 50%;
+        margin: 25px 0 0 35px;
+    }
+
+    &__quote {
+        line-height: 1.4;
+        margin: 0 0 0 40px;
+        max-width: 400px;
+        @include m.font(20px, 400, v.$white__color);
+    }
+
+    @media (max-width:p.$media_md) {
+        background: url('/assets/Rectangle.svg') 50% 0/contain no-repeat;
+        width: 330px;
+        row-gap: 15px;
+
+        &__quote {
+
+            margin: 0 0 0 20px;
+            max-width: 280px;
+            @include m.font(13px, 400, v.$white__color);
+
+        }
+    }
+
+        
+    
 }
