@@ -1,0 +1,99 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders' as p;
+@use 'sass:color';
+
+%cloud-template {
+    width: 700px;
+    height: 240px;
+    background: url('/assets/Images/cloud.png') center/contain no-repeat;
+}
+
+%input-template {
+    width: 100%;
+    height: 47px;
+    border-radius: 20px;
+    border: 1px, solid, v.$color__grey;
+    padding: 0 1em;
+    @include m.font(25px, 400, v.$black__color);
+
+    &::placeholder {
+        @include m.font(25px, 100, v.$color__grey);
+    }
+}
+
+.form__section {
+    padding: 180px 15px;
+    position: relative;
+    overflow: hidden;
+
+    .form-section__bg-cloud {
+        @extend %cloud-template;
+    }
+
+
+    .cloud--left {
+        @include m.position (absolute, -1, -1, top, left, 0, -350px);
+    }
+
+    .cloud--right {
+        @include m.position (absolute, -1, -1, bottom, right, 0, -350px);
+    }
+
+    .form-section__wrapper {
+        @include m.d-flex(center, center, nowrap, row, 0, 0);
+        width: 100%;
+        height: 360px;
+        margin: 0 auto;
+    }
+        @media (max-width:p.$media_xl) {
+            padding: 200px 15px 230px 15px;
+        }
+}
+
+.form {
+    @include m.d-flex(center, center, nowrap, column, 0, 20px);
+    width: 100%;
+    max-width: 625px;
+
+    &__title {
+        @include m.font(36px, 400, v.$black__color);
+    }
+
+    &__name,
+    &__email,
+    &__text {
+        @extend %input-template;
+    }
+
+    &__button {
+        width: 100%;
+        height: 50px;
+        border-radius: 20px;
+        border: none;
+        @include m.font(25px, 500, v.$white__color);
+        background-color: v.$black__color;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .8;
+        }
+
+       
+    }
+         
+ @media (max-width:p.$media_lg) {
+            &__title {
+                @include m.font(32px, 400, v.$black__color);
+            }
+
+            &__name,
+            &__email,
+            &__text {
+            @include m.font(18px, 400, v.$white__color);
+                &::placeholder {
+                        @include m.font(18px, 100, v.$color__grey);
+                    }
+            }
+        }
+}
