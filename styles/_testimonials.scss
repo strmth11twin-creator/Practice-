@@ -27,12 +27,12 @@
     }
 
     .wrapper {
-
         position: relative;
         height: 500px;
+        max-width: 500px;
 
         &__left-button {
-            @include m.position (absolute, 1, -1, top, left, 100px, -100px);
+            @include m.position (absolute, 1, -1, top, left, 100px, -50px);
             @extend %slider-button;
 
             &-icon {

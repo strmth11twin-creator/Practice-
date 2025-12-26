@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -20,6 +23,10 @@ a {
 }
 h1, h2, h3, h4, h5, h6, p, button, blockquote {
     padding: 0;
+    margin: 0;
+}
+
+figure {
     margin: 0;
 }
 

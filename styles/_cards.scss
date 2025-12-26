@@ -45,17 +45,14 @@
         }
     }
 
-    @media (max-width:p.$media_min) {
-
-        // .info-card__title {
-        //         @include m.font(16px, 400, v.$black__color)
-        //     }
-
-        //     .info-card__text {
-        //         text-align: center;
-        //         @include m.font(13px, 300, v.$black__color)
-        //     }
-    }
+   @media (max-width:p.$media_min) {
+    .info-card__text {
+            @include m.font(11px, 300, v.$black__color)
+        }
+    max-width: 141px;
+        width: 100%;
+        height: 153px;
+   }
 
 }
 
