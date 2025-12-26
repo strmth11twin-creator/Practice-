@@ -6,7 +6,7 @@
 .header {
     width: 100%;
     height: 52px;
-    background-color:v.$blue__color;
+    background-color: v.$blue__color;
 
 
     border: {
@@ -73,8 +73,8 @@
                         nowrap,
                         row,
                         min(80px, 4vw),
-                        0) ;
-                        padding: 0 0 0 0;
+                        0);
+                    padding: 0 0 0 0;
                 }
 
             }
@@ -122,5 +122,76 @@
             }
         }
 
+        @media (max-width:p.$media_md) {
+
+            &__links,
+            .covid,
+            .globe {
+                display: none;
+            }
+        }
+    }
+}
+
+.mobile-navigation {
+    display: none;
+
+    &__burger {
+        @include m.position(absolute, 10, -1, top, right, 13px, 20px);
+
+        &-icon {
+            width: 33px;
+            height: 22px;
+            stroke: v.$white__color;
+            @extend %hover-black-icon;
+
+        }
+    }
+
+    &__toggler {
+        display: none;
+
+        &:checked+.navigation {
+            translate: 0;
+        }
+    }
+
+    .navigation {
+        padding: 100px 70px 0;
+        @include m.position (fixed, 999, 0);
+        background-color: color.adjust(v.$black__color, $alpha: -0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        translate: 100% 0;
+        transition: translate .22s;
+
+        &__list {
+            @include m.d-flex (start, start, nowrap, column, 0, 20px);
+
+            .navigation__list-item {
+                .navigation__list-link {
+                    @include m.font (36px, 400, v.$white__color);
+                    text-shadow: 2px 11px 5px rgba(0, 0, 0, .3);
+                }
+            }
+
+        }
+
+
+    }
+
+    &__cross {
+        @include m.position (absolute, 10, -1, top, right, 15px, 22px);
+
+        &-icon {
+            width: 25px;
+            height: 22px;
+            stroke: v.$white__color;
+            @extend %hover-black-icon;
+        }
+    }
+
+    @media (max-width:p.$media_md) {
+        display: block;
     }
 }
